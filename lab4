@@ -1,0 +1,90 @@
+def calculate_cost(num_items):
+    if num_items <= 50:
+        cost = num_items * 3 + 10
+    else:
+        cost = num_items * 2
+    return cost
+
+def generate_receipt(num_items, cost):
+    print("Receipt:")
+    print(f"{num_items} items x $3 = ${num_items * 3}")
+    if num_items <= 50:
+        print("Postage: $10")
+    else:
+        print("Postage: Free")
+    print(f"Total: ${cost}")
+
+def main():
+    num_items = int(input("Enter the number of items: "))
+    cost = calculate_cost(num_items)
+    generate_receipt(num_items, cost)
+
+if __name__ == "__main__":
+    main()
+
+
+def calculate_cost(num_items, shipping_method):
+    if num_items <= 50:
+        item_cost = num_items * 3
+        if shipping_method == 's':
+            postage_cost = 10
+        elif shipping_method == 'r':
+            postage_cost = 15
+        elif shipping_method == 'e':
+            postage_cost = 20
+    else:
+        item_cost = num_items * 2
+        if shipping_method == 's':
+            postage_cost = 0
+        elif shipping_method == 'r':
+            postage_cost = 10
+        elif shipping_method == 'e':
+            postage_cost = 17
+    total_cost = item_cost + postage_cost
+    return item_cost, postage_cost, total_cost
+
+def generate_receipt(num_items, item_cost, postage_cost, total_cost):
+    print("Receipt:")
+    print(f"{num_items} items x $3 = ${item_cost}")
+    if num_items <= 50:
+        if postage_cost == 10:
+            print("Standard post: $10")
+        elif postage_cost == 15:
+            print("Registered post: $15")
+        elif postage_cost == 20:
+            print("Express post: $20")
+    else:
+        if postage_cost == 0:
+            print("Standard post: Free")
+        elif postage_cost == 10:
+            print("Registered post: $10")
+        elif postage_cost == 17:
+            print("Express post: $17")
+    print(f"Total: ${total_cost}")
+
+def main():
+    num_items = int(input("Enter the number of items: "))
+    shipping_method = input("Enter shipping method (s/r/e): ").lower()
+    item_cost, postage_cost, total_cost = calculate_cost(num_items, shipping_method)
+    generate_receipt(num_items, item_cost, postage_cost, total_cost)
+
+if __name__ == "__main__":
+    main()
+
+
+def main():
+    # Ask the user to enter four integers
+    num1 = int(input("Enter the first integer: "))
+    num2 = int(input("Enter the second integer: "))
+    num3 = int(input("Enter the third integer: "))
+    num4 = int(input("Enter the fourth integer: "))
+
+    # Find the minimum and maximum numbers
+    min_num = min(num1, num2, num3, num4)
+    max_num = max(num1, num2, num3, num4)
+
+    # Display the minimum and maximum numbers
+    print(f"The minimum number is {min_num} and the maximum number is {max_num}.")
+
+if __name__ == "__main__":
+    main()
